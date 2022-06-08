@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SanPham from './SanPham'
 
 export default class DanhSachSanPham extends Component {
 
@@ -27,14 +28,7 @@ export default class DanhSachSanPham extends Component {
     renderSanPham = () => {
         return this.mangSanPham.map((sanPham, index) => {
             return <div className='col-4' key={index}>
-                <div className="card text-left text-center">
-                    <img style={{ width: 250, height: 250, marginLeft: 50 }} className="card-img-top" src={sanPham.hinhAnh} alt={sanPham.hinhAnh} />
-                    <div className="card-body">
-                        <h4 className="card-title">{sanPham.tenSP}</h4>
-                        <p className="card-text">{sanPham.giaBan}</p>
-                        <button onClick={() => { this.xemChiTiet(sanPham) }} className='btn btn-success'>Xem chi tiet</button>
-                    </div>
-                </div>
+              <SanPham xemChiTiet={this.xemChiTiet} sanPhamProps={sanPham}></SanPham>
 
             </div>
         })
