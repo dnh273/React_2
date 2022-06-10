@@ -8,7 +8,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <DanhSachSanPham></DanhSachSanPham>
+        {/* <DanhSachSanPham></DanhSachSanPham> */}
+        
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
