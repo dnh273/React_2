@@ -3,13 +3,14 @@ import DemoProps from "./Props/DemoProps";
 import ProductList from "./Props/ProductList";
 import dataJson from "./Data/data.json";
 import DanhSachSanPham from "./Props/DanhSachSanPham";
+import ExcerciseCarStore from "./ExcerciseCarStore/ExcerciseCarStore";
 
 export default class App extends Component {
   render() {
     return (
       <div>
         {/* <DanhSachSanPham></DanhSachSanPham> */}
-        
+        <ExcerciseCarStore></ExcerciseCarStore>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
