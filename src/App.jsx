@@ -10,7 +10,8 @@ export default class App extends Component {
     return (
       <div>
         {/* <DanhSachSanPham></DanhSachSanPham> */}
-        <ExcerciseCarStore></ExcerciseCarStore>
+        {/* <ExcerciseCarStore></ExcerciseCarStore> */}
+        <DemoProps></DemoProps>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
