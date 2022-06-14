@@ -10,9 +10,10 @@ export default class CartModal extends Component {
           <td>{spGioHang.maSP}</td>
           <td><img style={{ width: 35, height: 35 }} src={spGioHang.hinhAnh} alt={spGioHang.hinhAnh} /></td>
           <td>{spGioHang.tenSP}</td>
-          <td>{spGioHang.soLuong}</td>
-          <td>{spGioHang.donGia}</td>
-          <td>{spGioHang.donGia * spGioHang.soLuong}</td>
+          <td>{spGioHang.soLuong.toLocaleString()}</td>
+          <td>{spGioHang.donGia.toLocaleString()}</td>
+          <td>{(spGioHang.donGia * spGioHang.soLuong).toLocaleString()}</td>
+          <td><button onClick={() => { this.props.xoaGioHang(spGioHang.maSP) }} className='btn btn-danger'>Xoa</button></td>
         </tr>
       )
     })

@@ -14,13 +14,10 @@ export default class ExcerciseCart extends Component {
     let spGioHang = {
       maSP: sanPham.maSP,
       tenSP: sanPham.tenSP,
-      donGia: sanPham.donGia,
+      donGia: sanPham.giaBan,
       soLuong: 1,
       hinhAnh: sanPham.hinhAnh,
     }
-
-
-
     // TIm xem san pham da co trong gio hang chua
     let index = this.state.gioHang.findIndex(spGH => spGH.maSP === spGioHang.maSP)
 
@@ -43,18 +40,49 @@ export default class ExcerciseCart extends Component {
   }
 
 
+
+  xoaGioHang = (maSP) => {
+    // thuc hien chuc nang xoa
+    console.log(maSP)
+
+    let index = this.state.gioHang.findIndex(spGioHang => spGioHang.maSP === maSP);
+    if (index !== -1) {
+      this.state.gioHang.splice(index, 1)
+    }
+
+    this.setState({
+      gioHang: this.state.gioHang
+    })
+
+  }
+
+  tinhTongSoLuong = () => {
+    // Dung for
+    // let tongSoLuong = 0;
+    // for (let i = 0; i < this.state.gioHang.length; i++) {
+    //   let spGioHang = this.state.gioHang[i];
+    //   tongSoLuong += spGioHang.soLuong
+    // }
+    // return tongSoLuong;
+
+    return this.state.gioHang.reduce((tongSoLuong, spGioHang, index) => {
+      return tongSoLuong += spGioHang.soLuong;
+    }, 0).toLocaleString();
+  }
+
+
   render() {
     return (
       <div className='container-fluid'>
         <h3 className='text-center'>Bai tap gio hang  </h3>
         <div className='text-right'>
           <span style={{ width: 17, cursor: 'pointer' }} data-toggle="modal" data-target="#modelId">
-            <i className='fa fa-cart mr-5'><i className="fa fa-cart-arrow-down"></i>(0)Gio hang</i>
+            <i className='fa fa-cart mr-5'><i className="fa fa-cart-arrow-down"></i>{this.tinhTongSoLuong()}Gio hang</i>
 
           </span>
 
         </div>
-        <CartModal gioHang={this.state.gioHang}></CartModal>
+        <CartModal xoaGioHang={this.xoaGioHang} gioHang={this.state.gioHang}></CartModal>
         <ProductListEXC themGioHang={this.themGioHang} />
       </div>
     )
