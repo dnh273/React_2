@@ -13,7 +13,7 @@ export default class ProductItemEXC extends Component {
           <div className="card-body text-center">
             <h4 className="card-title">{sanPhamProps.tenSP}</h4>
             <p className="card-text">{sanPhamProps.giaBan}</p>
-            <button className='btn btn-success' onClick={() => { }}>Them gio hanh</button>
+            <button className='btn btn-success' onClick={() => { this.props.themGioHang(sanPhamProps) }}>Them gio hanh</button>
           </div>
         </div>
       </div>
