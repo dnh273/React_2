@@ -10,13 +10,23 @@ export default class CartModal extends Component {
           <td>{spGioHang.maSP}</td>
           <td><img style={{ width: 35, height: 35 }} src={spGioHang.hinhAnh} alt={spGioHang.hinhAnh} /></td>
           <td>{spGioHang.tenSP}</td>
-          <td>{spGioHang.soLuong.toLocaleString()}</td>
+          <td>
+            <button onClick={() => { this.props.tangGiamSoLuong(spGioHang.maSP, 1) }} className='btn btn-success'>+</button>
+            {spGioHang.soLuong.toLocaleString()}</td>
+          <button onClick={() => { this.props.tangGiamSoLuong(spGioHang.maSP, -1) }} className='btn btn-success'>-</button>
           <td>{spGioHang.donGia.toLocaleString()}</td>
           <td>{(spGioHang.donGia * spGioHang.soLuong).toLocaleString()}</td>
           <td><button onClick={() => { this.props.xoaGioHang(spGioHang.maSP) }} className='btn btn-danger'>Xoa</button></td>
         </tr>
       )
     })
+  }
+
+  tinhTongTien = () => {
+    let { gioHang } = this.props;
+    return gioHang.reduce((tongTien, spGioHang, index) => {
+      return tongTien += spGioHang.soLuong * spGioHang.donGia;
+    }, 0).toLocaleString();
   }
 
   render() {
@@ -51,11 +61,15 @@ export default class CartModal extends Component {
                     <tbody>
                       {this.renderCart()}
                     </tbody>
+                    <tfoot>
+                      <td colSpan='5'></td>
+                      <td>Tong tien</td>
+                      <td>{this.tinhTongTien()}</td>
+                    </tfoot>
                   </table>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" className="btn btn-primary">Save</button>
                 </div>
               </div>
             </div>

@@ -70,6 +70,26 @@ export default class ExcerciseCart extends Component {
     }, 0).toLocaleString();
   }
 
+  tangGiamSoLuong = (maSP, number) => { // 1 tang giam -1
+    let gioHang = [...this.state.gioHang];
+
+    let index = gioHang.findIndex(spGioHang => spGioHang.maSP === maSP);
+    if (index != -1) {
+      if (gioHang[index].soLuong <= 1 && number === -1) {
+        alert('So luong toi thieu it nhat la 1!')
+        return;
+      }
+      // Tim ra spGioHang trong gio hang thu index => tang so luong
+      gioHang[index].soLuong += number;
+    }
+    // render va gan lai gia tri state.gioHang
+    this.setState({
+      gioHang: gioHang
+    })
+  }
+
+
+
 
   render() {
     return (
@@ -82,7 +102,7 @@ export default class ExcerciseCart extends Component {
           </span>
 
         </div>
-        <CartModal xoaGioHang={this.xoaGioHang} gioHang={this.state.gioHang}></CartModal>
+        <CartModal tangGiamSoLuong={this.tangGiamSoLuong} xoaGioHang={this.xoaGioHang} gioHang={this.state.gioHang}></CartModal>
         <ProductListEXC themGioHang={this.themGioHang} />
       </div>
     )
