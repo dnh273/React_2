@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import DemoProps from "./Props/DemoProps";
-import ProductList from "./Props/ProductList";
-import dataJson from "./Data/data.json";
-import DanhSachSanPham from "./Props/DanhSachSanPham";
-import ExcerciseCarStore from "./ExcerciseCarStore/ExcerciseCarStore";
-import ExcerciseCart from "./Props/ExcerciseCart/ExcerciseCart";
+// import DemoProps from "./Props/DemoProps";
+// import ProductList from "./Props/ProductList";
+// import dataJson from "./Data/data.json";
+// import DanhSachSanPham from "./Props/DanhSachSanPham";
+// import ExcerciseCarStore from "./ExcerciseCarStore/ExcerciseCarStore";
+// import ExcerciseCart from "./Props/ExcerciseCart/ExcerciseCart";
+import BaiTapGioHangRedux from "./GioHangRedux/BaiTapGioHangRedux";
 
 export default class App extends Component {
   render() {
@@ -14,7 +15,8 @@ export default class App extends Component {
         {/* <ExcerciseCarStore></ExcerciseCarStore> */}
         {/* <DemoProps></DemoProps> */}
         {/* <ExcerciseCarStore></ExcerciseCarStore> */}
-        <ExcerciseCart></ExcerciseCart>
+        {/* <ExcerciseCart></ExcerciseCart> */}
+        <BaiTapGioHangRedux></BaiTapGioHangRedux>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
