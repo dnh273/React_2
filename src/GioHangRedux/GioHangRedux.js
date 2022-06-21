@@ -38,23 +38,38 @@ class GioHangRedux extends Component {
                                                     <td><img src={spGH.hinhAnh} alt={spGH.hinhAnh} width={50} height={50} /></td>
                                                     <td>{spGH.tenSP}</td>
                                                     <td>{spGH.donGia.toLocaleString()}</td>
-                                                    <td>{spGH.soLuong}</td>
+                                                    <td>
+                                                        <button className='btn btn-success' onClick={() => { this.props.tangGiamSoLuong(spGH.maSP, true) }}>+</button>
+                                                        {spGH.soLuong}
+                                                        <button className='btn btn-success' onClick={() => { this.props.tangGiamSoLuong(spGH.maSP, false) }}>-</button>
+                                                    </td>
                                                     <td>{(spGH.soLuong * spGH.donGia).toLocaleString()}</td>
+                                                    <td><button className='btn btn-danger' onClick={() => {
+                                                        this.props.xoaGioHang(spGH.maSP)
+                                                    }}
+                                                    >Xoa</button></td>
+
                                                 </tr>
                                             })}
                                         </tbody>
+                                        <tfoot>
+                                            <th colSpan={5}></th>
+                                            <th>Tong tien</th>
+                                            <th>{this.props.gioHang.reduce((tongTien, spGioHang, index) => {
+                                                return tongTien += spGioHang.soLuong * spGioHang.donGia;
+                                            }, 0).toLocaleString()}</th>
+                                        </tfoot>
                                     </table>
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save</button>
+                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Dong</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
+            </div >
         )
     }
 }
@@ -68,4 +83,29 @@ const mapStateToProps = state => { // state la state tong chua cac ung dung cua 
 
 }
 
-export default connect(mapStateToProps)(GioHangRedux)
+// Ham dua du lieu len reducer
+const mapDispatchToProps = (dispatch) => {
+    return {
+        xoaGioHang: (maSP) => {
+            let action = {
+                type: 'XOA_GIO_HANG',
+                maSP
+            }
+            //Dung phuong thuc dispatch redux cung cap de dua du lieu len reducer
+            console.log(maSP)
+            dispatch(action)
+        },
+        tangGiamSoLuong: (maSP, tangGiam) => { // tangGiam - true => Xu ly tang, tangGiam = false => Xu ly giam
+            // tao action de dua du lieu len reducer
+            let action = {
+                type: 'TANG_GIAM_SO_LUONG',// Thuoc tinh bat buoc de biet chay vao case nao trong tat ca reducer
+                maSP,
+                tangGiam
+            }
+            // Dua action len reducer moi lan nguoi dung click vao
+            dispatch(action)
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GioHangRedux)
