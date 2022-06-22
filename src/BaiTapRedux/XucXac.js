@@ -1,13 +1,29 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class XucXac extends Component {
+class XucXac extends Component {
+
+  renderXucXac = () => {
+    // Lay props tu reducer ve
+    return this.props.mangXucXac.map((xucXac, index) => {
+      return <img key={index} className='ml-2' style={{ width: 35, height: 35 }} src={xucXac.hinhAnh} alt={xucXac.hinhAnh} />
+    })
+  }
+
   render() {
     return (
       <div>
-        <img className='ml-2' style={{ width: 35, height: 35 }} src='./img/video_19_game_xuc_xac/1.png' alt='1' />
-        <img className='ml-2' style={{ width: 35, height: 35 }} src='./img/video_19_game_xuc_xac/1.png' alt='1' />
-        <img className='ml-2' style={{ width: 35, height: 35 }} src='./img/video_19_game_xuc_xac/1.png' alt='1' />
+        {this.renderXucXac()}
       </div>
     )
   }
 }
+
+// Ham lay state tu redux ve thanh props cua componnetn
+const mapStateToProps = state => {
+  return {
+    mangXucXac: state.BaiTapGameXucXacReducer.mangXucXac
+  }
+}
+
+export default connect(mapStateToProps)(XucXac)
