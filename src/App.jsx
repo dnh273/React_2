@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import GameXucXac from "./BaiTapRedux/GameXucXac";
 // import DemoProps from "./Props/DemoProps";
 // import ProductList from "./Props/ProductList";
 // import dataJson from "./Data/data.json";
 // import DanhSachSanPham from "./Props/DanhSachSanPham";
 // import ExcerciseCarStore from "./ExcerciseCarStore/ExcerciseCarStore";
 // import ExcerciseCart from "./Props/ExcerciseCart/ExcerciseCart";
-import BaiTapGioHangRedux from "./GioHangRedux/BaiTapGioHangRedux";
+// import BaiTapGioHangRedux from "./GioHangRedux/BaiTapGioHangRedux";
 
 export default class App extends Component {
   render() {
@@ -16,7 +17,8 @@ export default class App extends Component {
         {/* <DemoProps></DemoProps> */}
         {/* <ExcerciseCarStore></ExcerciseCarStore> */}
         {/* <ExcerciseCart></ExcerciseCart> */}
-        <BaiTapGioHangRedux></BaiTapGioHangRedux>
+        {/* <BaiTapGioHangRedux></BaiTapGioHangRedux> */}
+        <GameXucXac></GameXucXac>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
