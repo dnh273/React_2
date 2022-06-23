@@ -14,6 +14,9 @@ const stateDefault = {
 
 const BaiTapGameXucXacReducer = (state = stateDefault, action) => {
     switch (action.type) {
+        case 'DAT_CUOC':
+            state.taiXiu = action.taiXiu;
+            return { ...state }
         default: return { ...state }
     }
 }
