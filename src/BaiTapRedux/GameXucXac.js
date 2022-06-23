@@ -22,7 +22,7 @@ class GameXucXac extends Component {
                 </div>
                 <div className='thongTinTroChoi text-center'>
                     <ThongTinTroChoi></ThongTinTroChoi>
-                    <button className='btn btn-success mt-2 p-2 display-4'>PLay game</button>
+                    <button onClick={() => { this.props.playGame() }} className='btn btn-success mt-2 p-2 display-4'>PLay game</button>
                 </div>
             </div>
 
@@ -40,7 +40,12 @@ const mapDispatchToProps = (dispatch) => {
             }
             // Gui len reducer
             dispatch(action);
-
+        },
+        playGame: () => {
+            // Gui du lieu type PLAY_GAME len reducer
+            dispatch({
+                type: 'PLAY_GAME',
+            })
         }
     }
 }
