@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import GameOanTuTi from "./BaiTapRedux/BaiTapOanTuTi/GameOanTuTi";
 import GameXucXac from "./BaiTapRedux/GameXucXac";
 // import DemoProps from "./Props/DemoProps";
 // import ProductList from "./Props/ProductList";
@@ -18,7 +19,8 @@ export default class App extends Component {
         {/* <ExcerciseCarStore></ExcerciseCarStore> */}
         {/* <ExcerciseCart></ExcerciseCart> */}
         {/* <BaiTapGioHangRedux></BaiTapGioHangRedux> */}
-        <GameXucXac></GameXucXac>
+        {/* <GameXucXac></GameXucXac> */}
+        <GameOanTuTi></GameOanTuTi>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
