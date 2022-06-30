@@ -1,4 +1,3 @@
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 const stateDefault = {
     mangDatCuoc: [
@@ -7,7 +6,7 @@ const stateDefault = {
         { ma: 'bao', hinhAnh: './img/gameOanTuTi/bao.png', datCuoc: false },
     ],
     ketQua: 'Thang',
-    soBanthang: 0,
+    soBanThang: 0,
     soBanChoi: 0,
     computer: { ma: 'keo', hinhAnh: './img/gameOanTuTi/keo.png', datCuoc: false }
 }
@@ -31,6 +30,7 @@ const BaiTapOanTuTiReducer = (state = stateDefault, action) => {
             //     mangCuocUpdate[index].datCuoc = true;
             // }
 
+            // setState cua mangCuoc => render lai gia  o dien
             state.mangDatCuoc = mangCuocUpdate;
             return { ...state }
 
@@ -45,6 +45,46 @@ const BaiTapOanTuTiReducer = (state = stateDefault, action) => {
             return { ...state }
         }
 
+        case 'END_GAME':
+
+            let player = state.mangDatCuoc.find(item => item.datCuoc === true);
+            let computer = state.computer;
+
+            switch (player.ma) {
+                case 'keo':
+                    if (computer.ma === 'keo') {
+                        state.ketQua = 'hoa'
+                    } else if (computer.ma === 'bao') {
+                        state.ketQua = 'thang'
+                        state.soBanThang++;
+                    } else {
+                        state.ketQua = 'thua'
+                    }; break;
+                case 'bua':
+                    if (computer.ma === 'keo') {
+                        state.ketQua = 'thang'
+                        state.soBanThang++;
+                    } else if (computer.ma === 'bao') {
+                        state.ketQua = 'thua'
+
+                    } else {
+                        state.ketQua = 'hoa'
+                    }; break;
+                case 'bao':
+                    if (computer.ma === 'keo') {
+                        state.ketQua = 'thua'
+                    } else if (computer.ma === 'bao') {
+                        state.ketQua = 'hoa'
+                    } else {
+                        state.ketQua = 'thang'
+                        state.soBanThang++;
+                    }; break;
+                default:
+                    state.soBanThang++;
+                    state.ketQua = 'Im iron man, i love u 3000'
+            }
+            state.soBanChoi++;
+            return { ...state }
         default: return { ...state }
     }
 }

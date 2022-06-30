@@ -39,6 +39,7 @@ const mapDispatchToProps = dispatch => {
     return {
         playGame: () => {
 
+
             let count = 0;
             // Khai bao ham lap di lap lai
             let randomComputerItem = setInterval(() => {
@@ -49,6 +50,11 @@ const mapDispatchToProps = dispatch => {
                 if (count > 10) {
                     // Dung ham setInterval
                     clearInterval(randomComputerItem)
+                    
+                    dispatch({
+                        type: 'END_GAME',
+                        
+                    })
                 }
             }, 100)
         }
