@@ -1,6 +1,9 @@
+import { type } from '@testing-library/user-event/dist/type'
 import React, { Component } from 'react'
+import { connect } from 'react-redux/es/exports'
+import { HUY_GHE } from '../../Redux/types/BaiTapDatVeType'
 
-export default class ThongTinDatGhe extends Component {
+class ThongTinDatGhe extends Component {
     render() {
         return (
 
@@ -41,22 +44,43 @@ export default class ThongTinDatGhe extends Component {
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <th>So ghe</th>
-                                <th>Gia</th>
-                                <th></th>
-                            </tr>
+                            {this.props.danhSachGheDangDat.map((gheDangDat, index) => {
+                                return <tr className='text-warning' key={index}>
 
-                            <tr>
-                                <th>So ghe</th>
-                                <th>Gia</th>
-                                <th></th>
-                            </tr>
+                                    <td className=''>{gheDangDat.soGhe}</td>
+                                    <td className=''>{gheDangDat.gia}</td>
+                                    <td><button onClick={() => {
+                                        this.props.dispatch({
+                                            type: HUY_GHE,
+                                            soGhe: gheDangDat.soGhe
+                                        }
+                                        )
+                                    }}> Huy? </button></td>
+                                </tr>
+                            })}
 
                         </tbody>
+                        <tfoot>
+                            <tr className='text-warning'>
+
+                                <td></td>
+                                <td>Tong Tien</td>
+                                <td>{this.props.danhSachGheDangDat.reduce((tongTien, gheDangDat, index) => {
+                                    return tongTien += gheDangDat.gia;
+                                }, 0).toLocaleString()}</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        danhSachGheDangDat: state.BaiTapDatVeReducer.danhSachGheDangDat
+    }
+}
+
+export default connect(mapStateToProps)(ThongTinDatGhe)
