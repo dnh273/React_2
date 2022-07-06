@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BaiTapBookingTicket from "./BaiTapRedux/BaiTapBookingTicket/BaiTapBookingTicket";
 import GameOanTuTi from "./BaiTapRedux/BaiTapOanTuTi/GameOanTuTi";
 import GameXucXac from "./BaiTapRedux/GameXucXac";
+import DemoPureComponent from "./DemoPureComponent/DemoPureComponent";
 // import DemoProps from "./Props/DemoProps";
 // import ProductList from "./Props/ProductList";
 // import dataJson from "./Data/data.json";
@@ -22,7 +23,8 @@ export default class App extends Component {
         {/* <BaiTapGioHangRedux></BaiTapGioHangRedux> */}
         {/* <GameXucXac></GameXucXac> */}
         {/* <GameOanTuTi></GameOanTuTi> */}
-        <BaiTapBookingTicket></BaiTapBookingTicket>
+        {/* <BaiTapBookingTicket></BaiTapBookingTicket> */}
+        <DemoPureComponent></DemoPureComponent>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
