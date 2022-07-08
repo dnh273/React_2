@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BaiTapBookingTicket from "./BaiTapRedux/BaiTapBookingTicket/BaiTapBookingTicket";
 import GameOanTuTi from "./BaiTapRedux/BaiTapOanTuTi/GameOanTuTi";
 import GameXucXac from "./BaiTapRedux/GameXucXac";
+import ContextDemo from "./ContextDemo/ContextDemo";
 import DemoPureComponent from "./DemoPureComponent/DemoPureComponent";
 // import DemoProps from "./Props/DemoProps";
 // import ProductList from "./Props/ProductList";
@@ -24,7 +25,8 @@ export default class App extends Component {
         {/* <GameXucXac></GameXucXac> */}
         {/* <GameOanTuTi></GameOanTuTi> */}
         {/* <BaiTapBookingTicket></BaiTapBookingTicket> */}
-        <DemoPureComponent></DemoPureComponent>
+        {/* <DemoPureComponent></DemoPureComponent> */}
+        <ContextDemo></ContextDemo>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
