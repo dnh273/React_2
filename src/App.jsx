@@ -3,6 +3,7 @@ import BaiTapBookingTicket from "./BaiTapRedux/BaiTapBookingTicket/BaiTapBooking
 import GameOanTuTi from "./BaiTapRedux/BaiTapOanTuTi/GameOanTuTi";
 import GameXucXac from "./BaiTapRedux/GameXucXac";
 import ContextDemo from "./ContextDemo/ContextDemo";
+import ExContextModelList from "./ContextDemo/ExContextModelList/ExContextModelList";
 import DemoPureComponent from "./DemoPureComponent/DemoPureComponent";
 // import DemoProps from "./Props/DemoProps";
 // import ProductList from "./Props/ProductList";
@@ -26,7 +27,8 @@ export default class App extends Component {
         {/* <GameOanTuTi></GameOanTuTi> */}
         {/* <BaiTapBookingTicket></BaiTapBookingTicket> */}
         {/* <DemoPureComponent></DemoPureComponent> */}
-        <ContextDemo></ContextDemo>
+        {/* <ContextDemo></ContextDemo> */}
+        <ExContextModelList></ExContextModelList>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
