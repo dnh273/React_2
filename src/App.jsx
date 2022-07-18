@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BaiTapBookingTicket from "./BaiTapRedux/BaiTapBookingTicket/BaiTapBookingTicket";
+import BaiTapBurger from "./BaiTapRedux/BaiTapBurger/BaiTapBurger";
 import GameOanTuTi from "./BaiTapRedux/BaiTapOanTuTi/GameOanTuTi";
 import GameXucXac from "./BaiTapRedux/GameXucXac";
 import ContextDemo from "./ContextDemo/ContextDemo";
@@ -28,7 +29,8 @@ export default class App extends Component {
         {/* <BaiTapBookingTicket></BaiTapBookingTicket> */}
         {/* <DemoPureComponent></DemoPureComponent> */}
         {/* <ContextDemo></ContextDemo> */}
-        <ExContextModelList></ExContextModelList>
+        {/* <ExContextModelList></ExContextModelList> */}
+        <BaiTapBurger></BaiTapBurger>
       </div>
       // <div className="container-fluid">
       //   {/* <DemoProps></DemoProps> */}
