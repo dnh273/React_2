@@ -35,7 +35,6 @@ class BurgerComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state", state.BaiTapBurgerReducer.burger);
   return {
     arrayBurger: state.BaiTapBurgerReducer.burger,
   };

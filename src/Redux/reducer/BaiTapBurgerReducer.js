@@ -14,18 +14,18 @@ const burgerState = {
 
 const BaiTapBurgerReducer = (state = burgerState, action) => {
     switch (action.type) {
-        case 'TANG_GIAM_SO_LUONG_FOOD': {
-            let burgerStateUpdate = [...state.burger]
-            let { tangGiam, burgerItem } = action;
-            if (tangGiam) {
-                burgerStateUpdate[burgerItem] += 1;
-            } else {
-                if (burgerStateUpdate[burgerItem] > 1) {
-                    burgerStateUpdate[burgerItem] -= 1;
-                } else {
-                    alert('So luong toi thieu 1')
-                }
+        case 'ADD_BREAD': {
+            let { propsBurger, amout } = action;
+            console.log(action);
+            let burgerUpdate = { ...state.burger };
+            if (amout === -1 && burgerUpdate[propsBurger] < 1) {
+                alert('Gia tri khong the nho hon 1')
+                return { ...state }
             }
+            burgerUpdate[propsBurger] += amout;
+            state.burger = burgerUpdate;
+            // Tinh tong tien
+            state.total += amout * state.menu[propsBurger]
 
             return { ...state }
         }
